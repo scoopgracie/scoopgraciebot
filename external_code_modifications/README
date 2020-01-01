@@ -1,0 +1,2 @@
+This folder contains modified source files for third-party open-source software. They are placed here so init.sh can download the latest sources, then replace files as needed.
+See each file for copyright information

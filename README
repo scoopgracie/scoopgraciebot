@@ -1,0 +1,22 @@
+Although it is not required, you may copy (or symlink) the scoopgraciebot
+subfolder to a more convenient location. Simply substitute that folder when this
+file references the scoopgraciebot folder. However, note that the bot.py3 script
+must be run from within the folder containing the robots and librobots.so files.
+Also, if you put it in your home directory, do NOT call it scoopgraciebot!
+The bot will not work if either a file or folder called scoopgraciebot exists in
+the home directory.
+
+
+---RUNNING THE BOT---
+To run the bot, you first need to initialise the queue. To do this, open the
+scoopgraciebot subfolder in a terminal window and type "./setup.py3
+<start_url>", without the quotes. After doing this, type "./bot.py3" in the same
+folder.
+
+---STOPPING THE BOT---
+To stop the bot, simply delete the scoopgraciebot file (NOT scoopgraciebot.json)
+in the home directory of the user running the bot.
+
+---RESUMING THE BOT---
+To resume crawling, after stopping the bot, run ./bot.py3 (in the scoopgraciebot
+folder) WITHOUT running ./setup.py3.

@@ -1,0 +1,50 @@
+All commands should be run in the directory containing this file.
+
+---CHECKING DEPENDENCIES---
+Upon initially extracting this folder, run:
+	./check.sh
+
+This will check for all known dependencies of the build system. If it tells
+you there are some not installed, you will need to install them with your
+system's package manager before continuing.
+
+Obviously, if any part of the build system fails with a message about a command
+not found, you probably need to install that program as well. check.sh only
+looks for dependencies I know about, and there may be others in use by the
+robotstxt folder's separate build system. (You should never notice this system,
+as my scripts are mostly wrappers around it.)
+
+---SETUP---
+After checking dependencies, run:
+	./init.sh
+
+This will set up necessary files.
+
+---MODIFYING---
+Typically, the only files you will care about modifying are
+scoopgraciebot/bot.py3, scoopgraciebot/setup.py3, and (rarely)
+robotstxt/robots_main.cc. In fact, it is not a good idea to modify other files,
+as there is a good chance the build system will simply throw away changes to
+other files!
+
+---BUILDING---
+After modifying files in robotstxt (see note below), you will need to rebuild
+the bot. To do so, run:
+	./build.sh
+	
+Please note that modifications to the contents of the robotstxt folder must be
+limited to the robots_main.cc file. This is because the build system depends on
+other files in the robotstxt folder not being modified.
+
+Rebuilding is not needed after modifying the bot itself, scoopgraciebot/bot.py3.
+
+---PACKAGING---
+When packaging the bot for (re)distribution, run the following commands:
+	./cleanup.sh
+	./tarball.sh
+
+The first command will save any changes to robotstxt/robots_main.cc and delete
+the robotstxt folder. Note that you will need to run init.sh again before
+continuing development, as the build will fail without the robotstxt folder.
+
+The second command will package the entire bot into scoopgraciebot.tgz.
